@@ -1,7 +1,7 @@
 from numpy import array
-from PIL import Image #used to load and create images
+#from PIL import Image #used to load and create images
 import numpy as np
-import pickle  #pickle is used to serialize the data
+#import pickle  #pickle is used to serialize the data
 import pandas as pd
 from keras.preprocessing import sequence
 from keras.preprocessing.sequence import pad_sequences
@@ -9,14 +9,14 @@ from keras.models import load_model
 from keras.applications.inception_v3 import InceptionV3,preprocess_input
 from keras.preprocessing import image #preprocessing of image
 from keras.utils import to_categorical
-import nltk
-import string
+#import nltk
+#import string
 from keras.models import Model
 
-model = load_model('D:/caption_bot/model8.h5')
+model = load_model('model8.h5')
 model._make_predict_function()
 
-model_temp = load_model('D:/caption_bot/inception.h5')
+model_temp = load_model('inception.h5')
 
 model_new = Model(model_temp.input, model_temp.layers[-2].output)
 model_new._make_predict_function()
@@ -38,7 +38,7 @@ def encode(image):
 max_length=74
 
 # Get training descriptions
-doc = open('D:/caption_bot/vocab.txt', 'r').read().strip().split('\n')
+doc = open('vocab.txt', 'r').read().strip().split('\n')
 vocab = list()
 
 for line in doc:
