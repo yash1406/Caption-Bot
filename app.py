@@ -1,5 +1,5 @@
 from flask import Flask,render_template,redirect,request;
-#import captionit
+import captionit
 app = Flask(__name__)
 
 @app.route('/')
@@ -12,7 +12,7 @@ def marks():
 		f = request.files['userfile']
 		path = "./static/{}".format(f.filename)
 		f.save(path)
-		#caption = captionit.caption_this_image(path)
+		caption = captionit.caption_this_image(path)
 		
 		return render_template("index.html",yourcaption=caption) 
 
